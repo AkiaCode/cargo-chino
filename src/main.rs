@@ -1,5 +1,4 @@
 use viuer::{print_from_file, Config};
-use std::path::PathBuf;
 
 fn main() {
     let conf = Config {
@@ -12,10 +11,10 @@ fn main() {
         ..Default::default()
     };
 
-    let mut img_path = PathBuf::new();
-    img_path.push(std::env::current_dir().unwrap().to_str().unwrap());
-    img_path.push("img.png");
+    let req = reqwest::blocking::get("https://raw.githubusercontent.com/AkiaCode/cargo-chino/main/img.png").unwrap().bytes().unwrap();
 
+    let mut file = std::fs::File::create("./img.png").unwrap();
+    std::io::copy(&mut req.as_ref(), &mut file).unwrap();
 
-    print_from_file(img_path.to_str().unwrap(), &conf).expect("Image printing failed.");
+    print_from_file("./img.png", &conf).expect("Image printing failed.");
 }
