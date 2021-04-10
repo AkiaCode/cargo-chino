@@ -1,4 +1,6 @@
 use viuer::{print_from_file, Config};
+use std::path::PathBuf;
+use std::fs;
 
 fn main() {
     let conf = Config {
@@ -11,5 +13,7 @@ fn main() {
         ..Default::default()
     };
 
-    print_from_file("./img.png", &conf).expect("Image printing failed.");
+    let out_dir = PathBuf::from("img.png");
+
+    print_from_file(fs::canonicalize(&out_dir).unwrap().to_str().unwrap(), &conf).expect("Image printing failed.");
 }

@@ -1,6 +1,6 @@
 [package]
 name = "cargo-chino"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Akiacode <catry.me@gmail.com>"]
 edition = "2018"
 description = "Cody said: They can love chino"
