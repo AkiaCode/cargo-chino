@@ -1,0 +1,13 @@
+[package]
+name = "cargo-chino"
+version = "0.1.0"
+authors = ["Akiacode <catry.me@gmail.com>"]
+edition = "2018"
+description = "Cody said: They can love chino"
+license = "MIT"
+repository = "https://github.com/AkiaCode/cargo-chino"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+viuer = "0.4.0"
+image = "0.23.14"
